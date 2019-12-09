@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import UserContainer from './components/UserContainer'
+import ReposContainer from './components/ReposContainer';
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
         <Link to="/repos">Search Repos</Link>
       </div>
       <Route path="/users" component={UserContainer} />
-        {/* <Route path="/repos" component={} /> */}
+      <Route path="/repos" component={ReposContainer} />
     </BrowserRouter>
   )
 }

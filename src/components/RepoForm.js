@@ -1,39 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPersonalInfo, saveUsername } from "../actions/actions";
+import { getDetailedRepo, saveRepoName } from "../actions/ReposActions";
 
-class UsersForm extends Component {
+class RepoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: ""
+      repo: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ user: event.target.value });
+    this.setState({ repo: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.saveUser(this.state.user);
-    this.props.searchUser(this.state.user)
-    console.log(this.state.user)
-    this.setState({ user: "" });
+    this.props.saveRepoName(this.state.repo);
+    this.props.searchRepo(this.state.repo)
+    console.log(this.state.repo)
+    this.setState({ repo: "" });
   }
 
   render() {
-    const { user } = this.state;
+    const { repo } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label htmlFor="user">user</label>
+          <label htmlFor="repo">repo</label>
           <input
             type="text"
-            id="user"
-            value={user}
+            id="repo"
+            value={repo}
             onChange={this.handleChange}
           />
         </div>
@@ -45,14 +45,14 @@ class UsersForm extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveUser: (payload) => dispatch(saveUsername(payload)),
-    searchUser: (payload) => dispatch(getPersonalInfo(payload))
+    saveRepoName: (payload) => dispatch(saveRepoName(payload)),
+    searchRepo: (payload) => dispatch(getDetailedRepo(payload))
   };
 }
 
 const Form = connect(
   null,
   mapDispatchToProps
-)(UsersForm);
+)(RepoForm);
 
 export default Form;

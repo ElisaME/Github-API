@@ -1,14 +1,14 @@
 import React , { Component } from "react";
 import { connect } from "react-redux";
 
-export class List extends Component{
+export class ReposList extends Component{
   render(){
     return (
       <div>
-        {this.props.users.map(user=> (
+        {this.props.repos.map(repo=> (
           <div>
-            <img alt="" src={user.avatar_url} width="100" height="100"/>
-            <p><a target="blank" href={user.html_url}>{user.login}</a></p>
+            <p><a target="blank" href={repo.html_url}>{repo.name}</a></p>
+            <p>{repo.description}</p>
           </div>
         ))}
       </div>
@@ -19,10 +19,10 @@ export class List extends Component{
 
 function mapStateToProps(state) {
   return {
-    users: state.usersResults
+    repos: state.reposResults
   };
 }
 export default connect(
   mapStateToProps,
   null
-)(List);
+)(ReposList);
