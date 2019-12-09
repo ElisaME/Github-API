@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getDetailedRepo, saveRepoName } from "../actions/ReposActions";
+import styled from "styled-components"
+import {Container, Button, FormGroup, Label, Input, Col} from "reactstrap"
 
 class RepoForm extends Component {
   constructor(props) {
@@ -26,19 +28,28 @@ class RepoForm extends Component {
 
   render() {
     const { repo } = this.state;
+    const Subtitle = styled.h3`
+      margin-top:30px;
+    `
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="repo">repo</label>
-          <input
+      <Container>
+        <Subtitle>Search repositories from Github</Subtitle>
+        <form onSubmit={this.handleSubmit}>
+        <FormGroup row>
+          <Label htmlFor="repo" sm={2}>Enter repositorie:</Label>
+          <Col sm={3}>
+          <Input
             type="text"
             id="repo"
             value={repo}
             onChange={this.handleChange}
           />
-        </div>
-        <button type="submit">SAVE</button>
+          </Col>
+          <Button color="info" type="submit">Search</Button>
+        </FormGroup>
       </form>
+      </Container>
     );
   }
 }

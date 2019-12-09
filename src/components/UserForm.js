@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPersonalInfo, saveUsername } from "../actions/actions";
+import { Container, Button, FormGroup, Label, Input, Col } from "reactstrap";
+import styled from "styled-components"
 
 class UsersForm extends Component {
   constructor(props) {
@@ -26,19 +28,29 @@ class UsersForm extends Component {
 
   render() {
     const { user } = this.state;
+    const Subtitle = styled.h3`
+      margin-top:30px;
+    `
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="user">user</label>
-          <input
-            type="text"
-            id="user"
-            value={user}
-            onChange={this.handleChange}
-          />
-        </div>
-        <button type="submit">SAVE</button>
-      </form>
+      <Container>
+        <Subtitle>Search users from Github</Subtitle>
+        <form onSubmit={this.handleSubmit}>
+          <FormGroup row>
+            <Label htmlFor="user" sm={2}>Enter username:</Label>
+            <Col sm={3}>
+            <Input
+              type="text"
+              id="user"
+              value={user}
+              onChange={this.handleChange}
+            />
+            </Col>
+            <Button color="info" sm={2} type="submit">Search</Button>
+          </FormGroup>
+          
+        </form>
+      </Container>
     );
   }
 }

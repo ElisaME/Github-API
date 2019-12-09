@@ -1,18 +1,24 @@
 import React , { Component } from "react";
 import { connect } from "react-redux";
 import { reset_action } from "../actions/actions"
+import { Col , Row} from "reactstrap"
+import styled from "styled-components"
 
 export class List extends Component{
   render(){
+    const Image = styled.img`
+    width:100px;
+    height:100px
+  `
     return (
-      <div>
+      <Row>
         {this.props.users.map(user=> (
-          <div>
-            <img alt="" src={user.avatar_url} width="100" height="100"/>
+          <Col sm={3} className="text-center">
+            <Image alt="" src={user.avatar_url}/>
             <p><a target="blank" href={user.html_url}>{user.login}</a></p>
-          </div>
+          </Col>
         ))}
-      </div>
+      </Row>
     );
   }
 }
