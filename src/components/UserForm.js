@@ -45,7 +45,7 @@ class UsersForm extends Component {
               onChange={this.handleChange}
             />
             </Col>
-            <Button color="info" sm={2} type="submit">Search</Button>
+            <Button className="search_button" color="info" type="submit">Search</Button>
           </FormGroup>
           
         </form>

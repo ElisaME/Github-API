@@ -46,7 +46,7 @@ class RepoForm extends Component {
             onChange={this.handleChange}
           />
           </Col>
-          <Button color="info" type="submit">Search</Button>
+          <Button className="search_button" color="info" type="submit">Search</Button>
         </FormGroup>
       </form>
       </Container>

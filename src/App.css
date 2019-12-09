@@ -40,3 +40,10 @@
 body{
   background:#fdfdfd;
 }
+
+@media (max-width: 768px) {
+  .search_button{
+    width: 100%;
+    margin:5%;
+  }
+}

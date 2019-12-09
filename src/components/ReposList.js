@@ -15,6 +15,9 @@ export class ReposList extends Component{
       img{
         margin:20px;
       }
+      @media (max-width: 768px) {
+        display: block;
+      }
     `
 
     return (
