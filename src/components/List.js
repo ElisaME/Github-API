@@ -1,5 +1,6 @@
 import React , { Component } from "react";
 import { connect } from "react-redux";
+import { reset_action } from "../actions/actions"
 
 export class List extends Component{
   render(){
@@ -19,10 +20,15 @@ export class List extends Component{
 
 function mapStateToProps(state) {
   return {
-    users: state.usersResults
+    users: state.usersResults,
   };
 }
+
+function mapDispatchToProps(dispatch) {
+  dispatch (reset_action())
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(List);

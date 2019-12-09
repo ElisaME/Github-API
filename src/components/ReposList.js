@@ -1,5 +1,6 @@
 import React , { Component } from "react";
 import { connect } from "react-redux";
+import { reset_action } from "../actions/ReposActions"
 
 export class ReposList extends Component{
   render(){
@@ -22,7 +23,12 @@ function mapStateToProps(state) {
     repos: state.reposResults
   };
 }
+
+function mapDispatchToProps(dispatch) {
+  dispatch (reset_action())
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ReposList);

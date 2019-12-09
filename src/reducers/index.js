@@ -54,6 +54,9 @@ export function rootReducer (state = initialState, action) {
                 repoName:action.payload
             }
         }
+        case "RESET_ACTION":{
+            return initialState;
+        }
         default:
             return state;
     }
