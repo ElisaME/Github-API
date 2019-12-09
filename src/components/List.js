@@ -13,7 +13,7 @@ export class List extends Component{
     return (
       <Row>
         {this.props.users.map(user=> (
-          <Col sm={3} className="text-center">
+          <Col sm={3} className="text-center" key={user.id}>
             <Image alt="" src={user.avatar_url}/>
             <p><a target="blank" href={user.html_url}>{user.login}</a></p>
           </Col>
@@ -31,7 +31,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  dispatch (reset_action())
+  return reset_action(
+    {
+      reset_action: reset_action
+    },
+    dispatch
+  );
 }
 
 export default connect(

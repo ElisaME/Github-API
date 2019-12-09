@@ -20,7 +20,7 @@ export class ReposList extends Component{
     return (
       <Container>
         {this.props.repos.map(repo=> (
-          <RepoContainer>
+          <RepoContainer key={repo.id}>
           
             <img src={repo.owner.avatar_url} alt={repo.owner.login} width="150" height="150"/>            
             <div>
@@ -45,7 +45,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  dispatch (reset_action())
+  return reset_action(
+    {
+      reset_action: reset_action
+    },
+    dispatch
+  );
 }
 
 export default connect(

@@ -22,7 +22,6 @@ class UsersForm extends Component {
     event.preventDefault();
     this.props.saveUser(this.state.user);
     this.props.searchUser(this.state.user)
-    console.log(this.state.user)
     this.setState({ user: "" });
   }
 

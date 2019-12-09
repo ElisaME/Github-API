@@ -13,7 +13,6 @@ function* getPersonalInfo(action){
 		}).then((response) => 
 			response.json()
 		);
-		console.log('here')
 		yield put({ type: 'FETCH_SUCCESS', payload });
 	} catch (err) {
 		console.log(err);
